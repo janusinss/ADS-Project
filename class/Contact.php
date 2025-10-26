@@ -1,14 +1,4 @@
 <?php
-/**
- * Contact Class
- * 
- * Handles all CRUD operations for the contacts table
- * Demonstrates: Date filtering, status management
- * 
- * @author Portfolio Project - WMSU CCS
- * @version 1.0
- */
-
 class Contact {
     // Database connection
     private $conn;

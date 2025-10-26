@@ -1,14 +1,4 @@
 <?php
-/**
- * Profile Class
- * 
- * Handles all CRUD operations for the profile table
- * Demonstrates: PDO prepared statements, error handling, advanced SQL with JOINs
- * 
- * @author Portfolio Project - WMSU CCS
- * @version 1.0
- */
-
 class Profile {
     // Database connection
     private $conn;

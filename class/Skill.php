@@ -1,14 +1,4 @@
 <?php
-/**
- * Skill Class
- * 
- * Handles all CRUD operations for the skills table
- * Demonstrates: GROUP BY, HAVING, aggregate functions
- * 
- * @author Portfolio Project - WMSU CCS
- * @version 1.0
- */
-
 class Skill {
     // Database connection
     private $conn;

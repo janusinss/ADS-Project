@@ -1,14 +1,4 @@
 <?php
-/**
- * Project Class
- * 
- * Handles all CRUD operations for the projects table
- * Demonstrates: FULLTEXT search, date calculations, CASE statements
- * 
- * @author Portfolio Project - WMSU CCS
- * @version 1.0
- */
-
 class Project {
     // Database connection
     private $conn;

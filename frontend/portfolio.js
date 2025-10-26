@@ -1,11 +1,3 @@
-/**
- * Portfolio Management System - Frontend JavaScript
- * Uses Fetch API for AJAX operations
- * 
- * @author Portfolio Project - WMSU CCS
- * @version 1.0
- */
-
 // API Base URL Configuration
 const API_BASE_URL = 'http://localhost/portfolio_project/api';
 

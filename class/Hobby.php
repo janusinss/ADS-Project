@@ -1,14 +1,4 @@
 <?php
-/**
- * Hobby Class
- * 
- * Handles all CRUD operations for the hobbies table
- * Simple CRUD operations with proper error handling
- * 
- * @author Portfolio Project - WMSU CCS
- * @version 1.0
- */
-
 class Hobby {
     // Database connection
     private $conn;
