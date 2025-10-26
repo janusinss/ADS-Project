@@ -1,14 +1,4 @@
 <?php
-/**
- * Database Connection Class
- * 
- * Establishes PDO connection to MySQL database
- * Follows singleton pattern for efficient connection management
- * 
- * @author Portfolio Project - WMSU CCS
- * @version 1.0
- */
-
 class Database {
     // Database credentials
     private $host = "localhost";

@@ -1,74 +1,16 @@
 <?php
-/**
- * Profile API Endpoint
- * 
- * Handles HTTP requests for profile CRUD operations
- * Methods: GET, POST, PUT, DELETE
- * Returns: JSON responses
- * 
- * @author Portfolio Project - WMSU CCS
- * @version 1.0
- * 
- * POSTMAN TESTING EXAMPLES:
- * 
- * 1. GET All Profiles
- *    Method: GET
- *    URL: http://localhost/portfolio_project/api/profile_api.php
- * 
- * 2. GET Single Profile
- *    Method: GET
- *    URL: http://localhost/portfolio_project/api/profile_api.php?id=1
- * 
- * 3. GET Profile with Statistics
- *    Method: GET
- *    URL: http://localhost/portfolio_project/api/profile_api.php?action=stats&id=1
- * 
- * 4. POST Create Profile
- *    Method: POST
- *    URL: http://localhost/portfolio_project/api/profile_api.php
- *    Body (raw JSON):
- *    {
- *        "full_name": "Maria Clara Santos",
- *        "email": "maria.santos@email.com",
- *        "phone": "+63 917 123 4567",
- *        "address": "Manila, Philippines",
- *        "bio": "Web developer and designer",
- *        "photo_url": "https://via.placeholder.com/300",
- *        "linkedin_url": "https://linkedin.com/in/mariasantos",
- *        "github_url": "https://github.com/mariasantos",
- *        "website_url": "https://mariasantos.dev",
- *        "date_of_birth": "2000-03-15"
- *    }
- * 
- * 5. PUT Update Profile
- *    Method: PUT
- *    URL: http://localhost/portfolio_project/api/profile_api.php
- *    Body (raw JSON):
- *    {
- *        "id": 1,
- *        "full_name": "Juan Dela Cruz Updated",
- *        "email": "juan.updated@email.com",
- *        "phone": "+63 912 999 8888",
- *        "address": "Zamboanga City, Philippines",
- *        "bio": "Updated bio text",
- *        "photo_url": "https://via.placeholder.com/300",
- *        "linkedin_url": "https://linkedin.com/in/juandelacruz",
- *        "github_url": "https://github.com/juandelacruz",
- *        "website_url": "https://juandelacruz.dev",
- *        "date_of_birth": "2001-05-15"
- *    }
- * 
- * 6. DELETE Profile
- *    Method: DELETE
- *    URL: http://localhost/portfolio_project/api/profile_api.php?id=1
- */
-
 // Set headers for JSON response and CORS
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+
+// Handle preflight OPTIONS request
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit();
+}
 
 // Include database connection and Profile class
 require_once 'database.php';

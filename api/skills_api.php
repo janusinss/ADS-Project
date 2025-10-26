@@ -1,74 +1,16 @@
 <?php
-/**
- * Skills API Endpoint
- * 
- * Handles HTTP requests for skills CRUD operations
- * Methods: GET, POST, PUT, DELETE
- * Returns: JSON responses
- * 
- * @author Portfolio Project - WMSU CCS
- * @version 1.0
- * 
- * POSTMAN TESTING EXAMPLES:
- * 
- * 1. GET All Skills
- *    Method: GET
- *    URL: http://localhost/portfolio_project/api/skills_api.php
- * 
- * 2. GET Single Skill
- *    Method: GET
- *    URL: http://localhost/portfolio_project/api/skills_api.php?id=1
- * 
- * 3. GET Skills by Category
- *    Method: GET
- *    URL: http://localhost/portfolio_project/api/skills_api.php?action=by_category
- * 
- * 4. GET Skills by Proficiency Level
- *    Method: GET
- *    URL: http://localhost/portfolio_project/api/skills_api.php?action=by_proficiency&level=Advanced
- * 
- * 5. GET Skill Statistics
- *    Method: GET
- *    URL: http://localhost/portfolio_project/api/skills_api.php?action=statistics
- * 
- * 6. POST Create Skill
- *    Method: POST
- *    URL: http://localhost/portfolio_project/api/skills_api.php
- *    Body (raw JSON):
- *    {
- *        "skill_name": "React.js",
- *        "category": "Frontend",
- *        "proficiency_level": "Intermediate",
- *        "years_of_experience": 2.0,
- *        "description": "Building interactive UIs with React",
- *        "icon_class": "fab fa-react"
- *    }
- * 
- * 7. PUT Update Skill
- *    Method: PUT
- *    URL: http://localhost/portfolio_project/api/skills_api.php
- *    Body (raw JSON):
- *    {
- *        "id": 1,
- *        "skill_name": "PHP Advanced",
- *        "category": "Backend",
- *        "proficiency_level": "Expert",
- *        "years_of_experience": 4.0,
- *        "description": "Updated description",
- *        "icon_class": "fab fa-php"
- *    }
- * 
- * 8. DELETE Skill
- *    Method: DELETE
- *    URL: http://localhost/portfolio_project/api/skills_api.php?id=1
- */
-
 // Set headers
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+
+// Handle preflight OPTIONS request
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit();
+}
 
 // Include required files
 require_once 'database.php';

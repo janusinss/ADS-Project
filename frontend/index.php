@@ -199,7 +199,7 @@
                     <label for="profile-website">Website URL</label>
                     <input type="url" id="profile-website">
                 </div>
-
+                
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" onclick="closeProfileModal()">Cancel</button>
                     <button type="submit" class="btn btn-primary">

@@ -1,86 +1,16 @@
 <?php
-/**
- * Projects API Endpoint
- * 
- * Handles HTTP requests for projects CRUD operations
- * Methods: GET, POST, PUT, DELETE
- * Returns: JSON responses
- * 
- * @author Portfolio Project - WMSU CCS
- * @version 1.0
- * 
- * POSTMAN TESTING EXAMPLES:
- * 
- * 1. GET All Projects
- *    Method: GET
- *    URL: http://localhost/portfolio_project/api/projects_api.php
- * 
- * 2. GET Single Project
- *    Method: GET
- *    URL: http://localhost/portfolio_project/api/projects_api.php?id=1
- * 
- * 3. GET Featured Projects
- *    Method: GET
- *    URL: http://localhost/portfolio_project/api/projects_api.php?action=featured
- * 
- * 4. GET Projects with Duration
- *    Method: GET
- *    URL: http://localhost/portfolio_project/api/projects_api.php?action=with_duration
- * 
- * 5. GET Project Statistics
- *    Method: GET
- *    URL: http://localhost/portfolio_project/api/projects_api.php?action=statistics
- * 
- * 6. GET Search by Technology
- *    Method: GET
- *    URL: http://localhost/portfolio_project/api/projects_api.php?action=search&technology=PHP
- * 
- * 7. POST Create Project
- *    Method: POST
- *    URL: http://localhost/portfolio_project/api/projects_api.php
- *    Body (raw JSON):
- *    {
- *        "project_title": "Portfolio Website",
- *        "description": "Personal portfolio website with admin panel",
- *        "technologies_used": "PHP, MySQL, JavaScript, Tailwind CSS",
- *        "project_url": "https://myportfolio.com",
- *        "github_url": "https://github.com/user/portfolio",
- *        "image_url": "https://via.placeholder.com/600x400",
- *        "start_date": "2024-01-01",
- *        "end_date": "2024-03-15",
- *        "status": "Completed",
- *        "featured": true
- *    }
- * 
- * 8. PUT Update Project
- *    Method: PUT
- *    URL: http://localhost/portfolio_project/api/projects_api.php
- *    Body (raw JSON):
- *    {
- *        "id": 1,
- *        "project_title": "Updated Project Title",
- *        "description": "Updated description",
- *        "technologies_used": "PHP, MySQL, React",
- *        "project_url": "https://updated.com",
- *        "github_url": "https://github.com/user/updated",
- *        "image_url": "https://via.placeholder.com/600x400",
- *        "start_date": "2024-01-01",
- *        "end_date": "2024-04-01",
- *        "status": "Completed",
- *        "featured": true
- *    }
- * 
- * 9. DELETE Project
- *    Method: DELETE
- *    URL: http://localhost/portfolio_project/api/projects_api.php?id=1
- */
-
 // Set headers
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+
+// Handle preflight OPTIONS request
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit();
+}
 
 // Include required files
 require_once 'database.php';

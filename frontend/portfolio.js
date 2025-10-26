@@ -126,7 +126,7 @@ function displayProfiles(profiles) {
     
     container.innerHTML = profiles.map(profile => `
         <div class="profile-card">
-            <img src="${profile.photo_url || 'https://via.placeholder.com/150'}" 
+            <img src="${profile.photo_url || 'https://avatar.iran.liara.run/public'}" 
                  alt="${profile.full_name}" class="profile-photo">
             <h3>${profile.full_name}</h3>
             <p class="profile-email"><i class="fas fa-envelope"></i> ${profile.email}</p>
@@ -660,7 +660,7 @@ function displayProjects(projects) {
     container.innerHTML = projects.map(project => `
         <div class="project-card ${project.featured ? 'featured' : ''}">
             ${project.featured ? '<span class="featured-badge"><i class="fas fa-star"></i> Featured</span>' : ''}
-            <img src="${project.image_url || 'https://via.placeholder.com/400x250'}" 
+            <img src="${project.image_url || 'https://picsum.photos/id/25/400/250'}" 
                  alt="${project.project_title}" class="project-image">
             <div class="project-content">
                 <h3>${project.project_title}</h3>

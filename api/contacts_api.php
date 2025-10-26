@@ -1,86 +1,16 @@
 <?php
-/**
- * Contacts API Endpoint
- * 
- * Handles HTTP requests for contacts CRUD operations
- * Methods: GET, POST, PUT, DELETE
- * Returns: JSON responses
- * 
- * @author Portfolio Project - WMSU CCS
- * @version 1.0
- * 
- * POSTMAN TESTING EXAMPLES:
- * 
- * 1. GET All Contacts
- *    Method: GET
- *    URL: http://localhost/portfolio_project/api/contacts_api.php
- * 
- * 2. GET Single Contact
- *    Method: GET
- *    URL: http://localhost/portfolio_project/api/contacts_api.php?id=1
- * 
- * 3. GET Contacts by Status
- *    Method: GET
- *    URL: http://localhost/portfolio_project/api/contacts_api.php?action=by_status&status=New
- * 
- * 4. GET Recent Contacts (last 30 days)
- *    Method: GET
- *    URL: http://localhost/portfolio_project/api/contacts_api.php?action=recent&days=30
- * 
- * 5. GET Contact Statistics
- *    Method: GET
- *    URL: http://localhost/portfolio_project/api/contacts_api.php?action=statistics
- * 
- * 6. GET Search Contacts
- *    Method: GET
- *    URL: http://localhost/portfolio_project/api/contacts_api.php?action=search&keyword=maria
- * 
- * 7. POST Create Contact
- *    Method: POST
- *    URL: http://localhost/portfolio_project/api/contacts_api.php
- *    Body (raw JSON):
- *    {
- *        "name": "Pedro Santos",
- *        "email": "pedro.santos@email.com",
- *        "subject": "Freelance Inquiry",
- *        "message": "I would like to hire you for a project",
- *        "status": "New",
- *        "ip_address": "192.168.1.100"
- *    }
- * 
- * 8. PUT Update Contact
- *    Method: PUT
- *    URL: http://localhost/portfolio_project/api/contacts_api.php
- *    Body (raw JSON):
- *    {
- *        "id": 1,
- *        "name": "Pedro Santos Updated",
- *        "email": "pedro.updated@email.com",
- *        "subject": "Updated Subject",
- *        "message": "Updated message",
- *        "status": "Read"
- *    }
- * 
- * 9. PUT Update Contact Status Only
- *    Method: PUT
- *    URL: http://localhost/portfolio_project/api/contacts_api.php?action=update_status
- *    Body (raw JSON):
- *    {
- *        "id": 1,
- *        "status": "Replied"
- *    }
- * 
- * 10. DELETE Contact
- *     Method: DELETE
- *     URL: http://localhost/portfolio_project/api/contacts_api.php?id=1
- */
-
 // Set headers
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+
+// Handle preflight OPTIONS request
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit();
+}
 
 // Include required files
 require_once 'database.php';

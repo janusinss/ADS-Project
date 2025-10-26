@@ -1,60 +1,16 @@
 <?php
-/**
- * Hobbies API Endpoint
- * 
- * Handles HTTP requests for hobbies CRUD operations
- * Methods: GET, POST, PUT, DELETE
- * Returns: JSON responses
- * 
- * @author Portfolio Project - WMSU CCS
- * @version 1.0
- * 
- * POSTMAN TESTING EXAMPLES:
- * 
- * 1. GET All Hobbies
- *    Method: GET
- *    URL: http://localhost/portfolio_project/api/hobbies_api.php
- * 
- * 2. GET Single Hobby
- *    Method: GET
- *    URL: http://localhost/portfolio_project/api/hobbies_api.php?id=1
- * 
- * 3. GET Search Hobbies
- *    Method: GET
- *    URL: http://localhost/portfolio_project/api/hobbies_api.php?action=search&keyword=coding
- * 
- * 4. POST Create Hobby
- *    Method: POST
- *    URL: http://localhost/portfolio_project/api/hobbies_api.php
- *    Body (raw JSON):
- *    {
- *        "hobby_name": "Swimming",
- *        "description": "Enjoy swimming at the beach on weekends",
- *        "icon_class": "fas fa-swimming-pool"
- *    }
- * 
- * 5. PUT Update Hobby
- *    Method: PUT
- *    URL: http://localhost/portfolio_project/api/hobbies_api.php
- *    Body (raw JSON):
- *    {
- *        "id": 1,
- *        "hobby_name": "Competitive Coding",
- *        "description": "Participating in coding competitions and hackathons",
- *        "icon_class": "fas fa-code"
- *    }
- * 
- * 6. DELETE Hobby
- *    Method: DELETE
- *    URL: http://localhost/portfolio_project/api/hobbies_api.php?id=1
- */
-
 // Set headers
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+
+// Handle preflight OPTIONS request
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit();
+}
 
 // Include required files
 require_once 'database.php';
