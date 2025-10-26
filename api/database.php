@@ -86,22 +86,3 @@ class Database {
     }
 }
 ?>
-```
-
----
-
-## 📁 **FILE ORGANIZATION**
-
-Save these files in your project structure:
-```
-C:/xampp/htdocs/portfolio_project/
-│
-├── api/
-│   └── database.php                  ✅ (Connection class)
-│
-└── class/
-    ├── Profile.php                   ✅ (Profile CRUD + advanced SQL)
-    ├── Skill.php                     ✅ (Skills CRUD + GROUP BY stats)
-    ├── Project.php                   ✅ (Projects CRUD + FULLTEXT search)
-    ├── Hobby.php                     ✅ (Hobbies CRUD + search)
-    └── Contact.php                   ✅ (Contacts CRUD + date filtering)

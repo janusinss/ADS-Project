@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 // Include database connection
 require_once '../api/database.php';
 
@@ -50,4 +50,4 @@ if ($db) {
 } else {
     echo "❌ Database connection failed!";
 }
-?>
+?> -->
